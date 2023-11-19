@@ -19,10 +19,11 @@ def nan_values(df):
     return False
 
 def valid_teams(teams):
-    csv_path = 'UpdateTeamAvgs/DailyStats/TeamAverages/November23/11-17-23.csv'
+    csv_path = 'UpdateTeamAvgs/DailyStats/TeamAverages/bare.csv'
     df = pd.read_csv(csv_path)
-    print(df['Team'].values)
-    return teams[0] in df['Team'].values and teams[1] in df['Team'].values
+    valid_names = df['Team'].values
+        
+    return teams[0] in valid_names and teams[1] in valid_names
 
 
 def restructure_home_away(df):
@@ -38,26 +39,32 @@ def restructure_home_away(df):
 # Drop the first row since it will have NaN values
     new_df = new_df.iloc[1:].reset_index(drop=True)
     return new_df
+
+
+def cancelled_game(df):
+    return len(df.columns) < 2
 def get_historical_game_data():
     year = '2023'
     month = '11'
-    for day in range(6,7):
+    header = ['Home', '1h', 'Th', 'Away', '1w', 'Tw']
+    master_df = pd.DataFrame(columns=header)
+    for day in range(6,12):
         day = str(day)
         if day in ['1','2','3','4','5','6','7','8','9']:
             day = '0' + day
         date = year + month + day
         URL = 'https://www.cbssports.com/college-basketball/scoreboard/FBS/' + date + '/'
         dfs = pd.read_html(URL)
-        master_df = pd.DataFrame()
         for df in dfs:
             df = drop_ot_columns(df)
             df['Team'] = df['Unnamed: 0'].str.extract(r'\s*\d*([a-zA-Z\s.]+[a-zA-Z])\d+-\d+')
             df = df.drop('Unnamed: 0', axis=1)
-            df = df.drop('2', axis=1)
-            if nan_values(df) or not valid_teams(df['Team'].tolist()):
+            if nan_values(df) or not valid_teams(df['Team'].tolist()) or cancelled_game(df):
                 continue
+            df = df.drop('2', axis=1)
             df = restructure_home_away(df)
-            master_df = pd.concat([df, master_df], ignore_index= True)
+            master_df = pd.concat([master_df,df], ignore_index= True)
+        master_df.to_csv('./Scores/' + date + '.csv', index = False)
     master_df = master_df.reset_index(drop=True)
 
     master_df.to_csv('./Scores/test.csv', index = False)
