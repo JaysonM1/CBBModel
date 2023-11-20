@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-
+from .names import inconsistent_names, cbs2ncaa
 def drop_ot_columns(df):
     # Check if 'OT' or 'OT2' columns exist
     ot_columns = [col for col in ['OT', 'OT2'] if col in df.columns]
@@ -22,8 +22,8 @@ def valid_teams(teams):
     csv_path = 'UpdateTeamAvgs/DailyStats/TeamAverages/bare.csv'
     df = pd.read_csv(csv_path)
     valid_names = df['Team'].values
-        
     return teams[0] in valid_names and teams[1] in valid_names
+        
 
 
 def restructure_home_away(df):
@@ -42,13 +42,28 @@ def restructure_home_away(df):
 
 
 def cancelled_game(df):
-    return len(df.columns) < 2
+    return len(df.columns) < 3
+
+def inconsistent_team_names(teams):
+    return teams[0] in inconsistent_names or teams[1] in inconsistent_names
+
+def change_to_consistent_names(df):
+    team1 = df['Team'][0]
+    team2 = df['Team'][1]
+    print(team1, team2)
+    if team1 in cbs2ncaa.keys():
+        df['Team'][0] = cbs2ncaa[team1]
+    if team2 in cbs2ncaa.keys():
+        df['Team'][1] = cbs2ncaa[team2]
+
+    return df
+
 def get_historical_game_data():
     year = '2023'
     month = '11'
     header = ['Home', '1h', 'Th', 'Away', '1w', 'Tw']
     master_df = pd.DataFrame(columns=header)
-    for day in range(6,12):
+    for day in range(6,13):
         day = str(day)
         if day in ['1','2','3','4','5','6','7','8','9']:
             day = '0' + day
@@ -57,10 +72,13 @@ def get_historical_game_data():
         dfs = pd.read_html(URL)
         for df in dfs:
             df = drop_ot_columns(df)
-            df['Team'] = df['Unnamed: 0'].str.extract(r'\s*\d*([a-zA-Z\s.]+[a-zA-Z])\d+-\d+')
+            df['Team'] = df['Unnamed: 0'].str.extract(r'(\D+)(?:\d+-\d*|\d*$)')
             df = df.drop('Unnamed: 0', axis=1)
             if nan_values(df) or not valid_teams(df['Team'].tolist()) or cancelled_game(df):
-                continue
+                if inconsistent_team_names(df['Team'].to_list()):
+                    df = change_to_consistent_names(df)
+                else:
+                    continue
             df = df.drop('2', axis=1)
             df = restructure_home_away(df)
             master_df = pd.concat([master_df,df], ignore_index= True)
