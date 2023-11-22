@@ -1,16 +1,19 @@
 import pandas as pd
+import os
+import shutil
 
 CORE_URL = 'https://www.ncaa.com/stats/basketball-men/d1/current/team/'
 DATE = '11-21-23'
+csv_path = './TeamAvgs/DailyStats/TeamAverages/November23/' + DATE + '.csv'
 
 def append_to_daily_main(df, col, corresponding_col):
-    csv_path = './UpdateTeamAvgs/DailyStats/TeamAverages/November23/' + DATE + '.csv'
     todays_df = pd.read_csv(csv_path)
     new_df = pd.merge(todays_df, df, on = 'Team')
     new_df[corresponding_col] = new_df[corresponding_col].fillna(new_df[col])
     new_df = new_df.drop(columns =  [col])
     new_df = new_df.drop_duplicates('Team')
     new_df.to_csv(csv_path, index=False)
+
 
 def get_stat_df_for_today(init_df, code):
     for page in range(1,8):
@@ -149,10 +152,10 @@ def update_ROpg():
     append_to_daily_main(df, 'RPG', 'ROpg')
 
 def update_Rpg():
-    code = '923'
+    code = '932'
     df = get_init_df_for_stat(code)
     df = get_stat_df_for_today(df, code)
-    df = df.drop(columns = ['Rank','GM', 'ORebs', 'DRebs'])
+    df = df.drop(columns = ['Rank','GM', 'ORebs', 'DRebs', 'REB'])
     append_to_daily_main(df, 'RPG', 'Rpg')
 
 def update_SD():
@@ -176,7 +179,7 @@ def update_SM():
     code = '147'
     df = get_init_df_for_stat(code)
     df = get_stat_df_for_today(df, code)
-    df = df.drop(columns = ['Rank','GM', 'PTS', 'OPP PTS', 'OPP PPG'])
+    df = df.drop(columns = ['Rank','GM', 'PTS', 'OPP PTS', 'OPP PPG', 'PPG'])
     append_to_daily_main(df, 'SCR MAR', 'SM')
 
 def update_Spg():
@@ -237,7 +240,29 @@ def update_Tpg():
     df = df.drop(columns = ['Rank','GM', 'TO'])
     append_to_daily_main(df, 'TOPG', 'Tpg') 
  
+
+def is_csv_present():
+    file_path = os.path.join("TeamAvgs/DailyStats/TeamAverages/November23/", DATE + ".csv")
+    return os.path.isfile(file_path) and file_path.lower().endswith('.csv')
+
+def copy_and_rename_csv():
+    # Construct source and destination paths
+    source_path = os.path.join("TeamAvgs/DailyStats/TeamAverages/", "bare.csv")
+    destination_path = os.path.join("TeamAvgs/DailyStats/TeamAverages/November23", DATE + ".csv")
+
+    # Copy the file from source to destination
+    shutil.copy(source_path, destination_path)
+
+    # Optionally, rename the file
+    os.rename(destination_path, os.path.join("TeamAvgs/DailyStats/TeamAverages/November23", DATE + ".csv"))
+
+
 def update_team_stats_today():
+    if is_csv_present():
+        exit
+    else:
+        copy_and_rename_csv()
+
     update_ATRatios()
     update_Apg()
     update_BPpg()
@@ -253,7 +278,7 @@ def update_team_stats_today():
     update_RM()
     update_RDpg()
     update_ROpg()
-    
+    update_Rpg()
     update_SD()
     update_SM()
     update_Spg()
@@ -265,11 +290,6 @@ def update_team_stats_today():
     update_TFpg()
     update_Tpg()
     update_SO()
-
-    csv_path = 'UpdateTeamAvgs/DailyStats/TeamAverages/November23/'+ DATE + '.csv'
-    df = pd.read_csv(csv_path)
-    df = df.drop(columns =  ['PPG'])
-    df.to_csv(csv_path, index=False)
     
 
     
