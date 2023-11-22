@@ -259,7 +259,8 @@ def copy_and_rename_csv():
 
 def update_team_stats_today():
     if is_csv_present():
-        exit
+        print("CSV is present")
+        return
     else:
         copy_and_rename_csv()
 
