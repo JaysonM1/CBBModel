@@ -1,7 +1,7 @@
 import pandas as pd
 
 CORE_URL = 'https://www.ncaa.com/stats/basketball-men/d1/current/team/'
-DATE = '11-18-23'
+DATE = '11-21-23'
 
 def append_to_daily_main(df, col, corresponding_col):
     csv_path = './UpdateTeamAvgs/DailyStats/TeamAverages/November23/' + DATE + '.csv'

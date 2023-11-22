@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-from .names import inconsistent_names, cbs2ncaa
+from .Names.names import inconsistent_names, cbs2ncaa
 def drop_ot_columns(df):
     # Check if 'OT' or 'OT2' columns exist
     ot_columns = [col for col in ['OT', 'OT2'] if col in df.columns]
@@ -58,12 +58,17 @@ def change_to_consistent_names(df):
 
     return df
 
+def get_raw_game_scores_from_day(day, month, year):
+    date = year + month + day
+    URL = 'https://www.cbssports.com/college-basketball/scoreboard/FBS/' + date + '/'
+    return pd.read_html(URL)
+
 def get_historical_game_data():
     year = '2023'
     month = '11'
     header = ['Home', '1h', 'Th', 'Away', '1w', 'Tw']
     master_df = pd.DataFrame(columns=header)
-    for day in range(6,13):
+    for day in range(6,21):
         day = str(day)
         if day in ['1','2','3','4','5','6','7','8','9']:
             day = '0' + day
