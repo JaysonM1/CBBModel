@@ -66,12 +66,16 @@ def get_raw_game_scores_from_day(day, month, year):
 def drop_leading_space(team_names):
     return [s.lstrip() for s in team_names]
 
+
+def drop_leading_space_df(df):
+    df['Team'] = df['Team'].str.strip()
+    return df
 def get_historical_game_data():
     year = '2023'
     month = '11'
     header = ['Home', '1h', 'Th', 'Away', '1w', 'Tw']
     master_df = pd.DataFrame(columns=header)
-    for day in range(6,8):
+    for day in range(6,23):
         day = str(day)
         if day in ['1','2','3','4','5','6','7','8','9']:
             day = '0' + day
@@ -83,6 +87,7 @@ def get_historical_game_data():
             df['Team'] = df['Unnamed: 0'].str.extract(r'(\D+)(?:\d+-\d*|\d*$)')
             df = df.drop('Unnamed: 0', axis=1)
             team_names = drop_leading_space(df['Team'].tolist())
+            df = drop_leading_space_df(df)
             if nan_values(df) or not valid_teams(team_names) or cancelled_game(df):
                 if inconsistent_team_names(team_names):
                     df = change_to_consistent_names(df)
