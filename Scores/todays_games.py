@@ -19,7 +19,7 @@ def nan_values(df):
     return False
 
 def valid_teams(teams):
-    csv_path = 'UpdateTeamAvgs/DailyStats/TeamAverages/bare.csv'
+    csv_path = 'TeamAvgs/DailyStats/TeamAverages/bare.csv'
     df = pd.read_csv(csv_path)
     valid_names = df['Team'].values
     return teams[0] in valid_names and teams[1] in valid_names
@@ -50,7 +50,6 @@ def inconsistent_team_names(teams):
 def change_to_consistent_names(df):
     team1 = df['Team'][0]
     team2 = df['Team'][1]
-    print(team1, team2)
     if team1 in cbs2ncaa.keys():
         df['Team'][0] = cbs2ncaa[team1]
     if team2 in cbs2ncaa.keys():
@@ -68,7 +67,7 @@ def get_historical_game_data():
     month = '11'
     header = ['Home', '1h', 'Th', 'Away', '1w', 'Tw']
     master_df = pd.DataFrame(columns=header)
-    for day in range(6,21):
+    for day in range(6,23):
         day = str(day)
         if day in ['1','2','3','4','5','6','7','8','9']:
             day = '0' + day
