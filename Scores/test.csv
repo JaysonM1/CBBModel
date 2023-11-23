@@ -1,5 +1,6 @@
 Home,1h,Th,Away,1w,Tw
 Georgia,30,71,Oregon,40,82
+Samford,17,45, Purdue,51,98
 Brown,31,70,Colgate,31,72
 Chicago St.,21,41,Bowling Green,32,70
 The Citadel,27,59,NC State,36,72
@@ -19,6 +20,7 @@ SIUE,24,47,Dayton,27,63
 UMBC,48,93,Louisville,40,94
 VMI,36,75,Richmond,55,93
 Winthrop,24,56,Clemson,33,78
+American,31,63, Villanova,41,90
 Cornell,39,84,Lehigh,44,78
 FDU,54,92,Buffalo,44,86
 Georgia St.,45,87,Belmont,47,89
@@ -37,14 +39,18 @@ Elon,55,78,Wake Forest,43,101
 Fairfield,34,70,Boston College,46,89
 FIU,21,62,UCF,43,85
 Jackson St.,36,77,Memphis,47,94
+Morehead St.,35,73, Alabama,55,105
 Navy,18,48,Campbell,32,59
 Oral Roberts,36,71,UT Arlington,31,75
 Robert Morris,33,63,Xavier,39,77
 Texas St.,34,66,Little Rock,38,71
 Green Bay,18,44,Iowa St.,49,85
+James Madison,37,79, Michigan St.,33,76
 Youngstown St.,31,62,Louisiana,35,72
+Dartmouth,21,54, Duke,42,92
 UIC,30,58,Cincinnati,40,69
 Southern U.,35,75,TCU,54,108
+Morgan St.,26,59, Arizona,61,122
 Portland St.,31,62,Air Force,27,55
 Sam Houston,25,64,Pacific,25,57
 Idaho,28,59,Washington St.,41,84
@@ -56,334 +62,8 @@ Stony Brook,30,74,St. John's (NY),41,90
 North Dakota,32,68,Iowa,56,110
 UNI,36,77,North Texas,38,83
 Presbyterian,24,68,Vanderbilt,28,62
+UNC Asheville,32,74,Michigan,48,99
+Auburn,43,82, Baylor,34,88
+Florida A&M,27,54, Creighton,56,105
 Sacramento St.,30,63,Nevada,39,77
 UC Irvine,24,64,San Jose St.,24,72
-Bucknell,33,61,Penn,53,80
-Canisius,32,77,Syracuse,41,89
- FAU,43,75,Loyola Chicago,30,62
-Troy,28,70,Ohio,43,88
-Lipscomb,48,70,Drake,44,85
-Jackson St.,39,61,San Diego,35,87
-Southern U.,40,85,UNLV,21,71
-Pepperdine,48,78,UC Davis,31,79
-American,24,56,William & Mary,35,75
-ETSU,28,76,Elon,39,79
-Fairfield,24,80,Rhode Island,49,93
-James Madison,43,113,Kent St.,38,108
-Northwestern St.,40,71,Tulane,48,88
-North Florida,33,81,Charleston So.,37,70
-Utah Valley,24,79,Sam Houston,27,73
-Florida A&M,25,54,Nebraska,41,81
-Mercer,33,66,Chicago St.,30,61
-Towson,35,70,Coppin St.,24,49
-Cal Poly,33,76,Denver,51,97
-Air Force,43,82,LIU,27,67
-Liberty,35,71,Charlotte,23,59
-Kennesaw St.,34,67,Florida St.,49,94
-UMass Lowell,49,81,Dartmouth,19,48
-Jacksonville,26,56,Xavier,37,79
-Penn,20,61,Saint Joseph's,33,69
-Youngstown St.,23,62,Michigan,46,92
-Boston College,35,75,The Citadel,38,71
-Belmont,31,76,Furman,46,99
-Binghamton,32,60,Pittsburgh,40,89
-Boston U.,22,45,Rutgers,30,69
-Chattanooga,33,81,Louisville,27,71
-Davidson,33,64,Maryland,32,61
-Monmouth,32,73,West Virginia,33,65
-Austin Peay,15,45,George Mason,42,67
-Princeton,30,74,Hofstra,29,67
-Radford,33,66,Marshall,23,62
-Sacred Heart,40,81,Iona,39,88
-Samford,34,65,VCU,31,75
-Troy,32,80,Oregon St.,32,81
-Virginia,39,73,Florida,35,70
-Wake Forest,36,77,Georgia,40,80
-Lehigh,38,65,Penn St.,38,74
-UTSA,30,76,Minnesota,54,102
-Alabama St.,37,67,Iowa,49,98
-Grambling,20,63,Colorado,50,95
-Harvard,43,89,Rice,33,76
-Little Rock,25,71,UIC,38,86
-Dayton,25,66,Northwestern,35,71
-Temple,41,75,Navy,26,68
-IUPUI,21,66,Valparaiso,25,56
-Memphis,26,70,Missouri,33,55
-Montana,37,61,Oregon,37,75
-Sacramento St.,39,73,Stanford,47,91
-Clemson,39,77,UAB,42,76
-Prairie View,30,65,Washington St.,43,83
-UC Riverside,13,53,Utah,48,82
-Lafayette,33,50,UCLA,30,68
-Pacific,40,87,California,38,79
-Arkansas St.,31,75,Bowling Green,34,81
-High Point,51,98,Wofford,46,99
-Cornell,45,78,Fordham,24,73
-Campbell,26,63,East Carolina,39,77
-Old Dominion,36,68,Ball St.,38,73
-South Alabama,33,70,Buffalo,29,56
-Marist,36,65,UMBC,22,59
-Northeastern,34,74,La Salle,38,79
-Coppin St.,25,60,Mount St. Mary's,42,74
-FDU,23,55,Seton Hall,47,85
-Drexel,29,74,Winthrop,33,72
-Milwaukee,26,69,Providence,39,79
-UAlbany,41,78,Columbia,29,75
-Bucknell,32,73,Niagara,29,64
-Fresno St.,22,69,Kent St.,31,79
-Stetson,21,55,UNLV,36,71
-Louisiana,45,78,Toledo,34,87
-E. Illinois,25,65,Loyola Chicago,48,89
-Holy Cross,32,68,Georgetown,37,67
-Illinois St.,34,71,Saint Louis,46,80
-Siena,22,48,Richmond,43,90
-Utah St.,30,66,Bradley,28,72
-Cal Poly,31,66,Wyoming,41,80
-Bryant,25,57,Rutgers,29,66
-Maryland,30,63,UAB,24,66
-Air Force,19,57,Delaware,29,65
-Idaho St.,25,55,Iowa St.,44,86
-Elon,39,68,North Dakota,37,85
-San Jose St.,21,42,Texas Tech,22,56
-Davidson,28,65,Clemson,23,68
-Howard,40,86,James Madison,59,107
-Lafayette,26,53,Pepperdine,42,76
-Merrimack,28,71,Maine,29,65
-UC Riverside,30,65,Portland,38,76
-Robert Morris,31,62,Towson,35,66
-UC Davis,32,65,Montana,42,78
-Nevada,41,83,Washington,30,76
-Michigan,48,89,St. John's (NY),38,73
-The Citadel,31,64,Presbyterian,35,71
-ETSU,20,47,Butler,45,81
-FGCU,35,74,Pittsburgh,45,86
-Hampton,32,68,Norfolk St.,41,75
-Quinnipiac,36,81,Massachusetts,45,102
-Siena,27,58,American,35,78
-Stony Brook,26,63,Duquesne,35,85
-VMI,33,64,South Carolina,41,74
-Oral Roberts,27,69,Missouri St.,39,84
-Rider,29,50,Nebraska,38,64
-SIUE,31,50,Missouri,38,68
-LIU,18,53,Pepperdine,39,88
-Wisconsin,21,59,Providence,37,72
-Bucknell,28,57,La Salle,33,69
-Bowling Green,28,62,Oakland,38,81
-Colgate,46,75,Syracuse,30,79
-Florida A&M,28,68,Florida,38,89
-Ga. Southern,39,68,Jacksonville,46,85
-IUPUI,21,57,Indiana St.,48,96
-Mercer,30,66,Morehead St.,38,74
-Northeastern,28,56,Harvard,41,80
-Sacred Heart,39,84,Holy Cross,31,77
-Temple,32,66,Drexel,25,64
-Toledo,41,78,Wright St.,40,77
-Wagner,26,53,Rhode Island,37,69
-Boston U.,24,53,Howard,23,64
-UIC,36,72,Loyola Chicago,37,67
-Duhawks,19,50,UNI,47,90
-Texas St.,22,54,Oklahoma,45,93
-Green Bay,31,59,Valparaiso,26,64
-South Dakota,25,60,DePaul,36,72
-Santa Clara,44,89,Stanford,46,77
-UAlbany,39,71,Seton Hall,54,96
-Coppin St.,21,41,Louisville,32,61
-Delaware,44,78,Delaware St.,28,67
-Merrimack,29,52,Ohio St.,35,76
-Princeton,37,70,Duquesne,31,67
-Radford,33,50,VCU,33,73
-Richmond,34,61,Boston College,30,68
-Utah Valley,21,45,Charlotte,31,62
-Cornell,42,83,George Mason,43,90
-Stony Brook,28,63,Nebraska,36,84
-Georgetown,32,60,Rutgers,38,71
-Tennessee St.,42,75,Portland,28,65
-LIU,17,58,UCLA,35,78
-Pacific,15,41,Nevada,55,88
-Morgan St.,26,68,Fresno St.,43,87
-St. John's (NY),30,53,North Texas,20,52
-Saint Louis,34,79,Wyoming,35,69
-Maine,34,78,Northwestern St.,33,65
-Dayton,30,70,LSU,32,67
-Denver,37,74,SIUE,43,77
-Bryant,37,79,Boston U.,47,95
-Furman,33,74,Liberty,38,88
-Presbyterian,28,81,North Florida,34,69
-Wright St.,49,80,Indiana,54,89
-Jackson St.,23,52,Tulsa,32,72
-UMass Lowell,31,69,Arizona St.,22,71
-Missouri,32,70,Minnesota,38,68
-UT Arlington,36,80,New Mexico,48,82
-Auburn,39,83,Notre Dame,33,59
-Utah,31,77,Wake Forest,41,70
-Montana St.,33,63,California,27,60
-Niagara,38,73,Hawaii,48,92
-Sacred Heart,35,80,UMBC,44,85
-North Texas,34,62,LSU,35,66
-Vermont,47,78,Saint Louis,32,68
-Norfolk St.,33,64,Fordham,43,77
-South Dakota,39,85,VMI,37,81
-St. John's (NY),40,81,Dayton,38,88
-Denver,30,75,South Alabama,33,82
-Gardner-Webb,27,62,Weber St.,34,61
-Presbyterian,25,66,Maine,32,80
-Holy Cross,22,51,Winthrop,42,89
-Hampton,36,62,Kent St.,55,100
-Colgate,20,50,Yale,36,68
-Delaware St.,32,71,Grambling,25,63
-Kansas St.,29,73,Providence,26,70
-William & Mary,27,71,Air Force,33,80
-Charleston So.,23,53,NC State,42,87
-Davidson,31,68,ETSU,23,70
-Fairfield,20,47,Drexel,39,65
-Florida St.,22,68,Florida,52,89
-Harvard,28,78,Massachusetts,37,75
-Jacksonville,22,56,Pittsburgh,52,107
-Morehead St.,26,51,Penn St.,37,74
-Northwestern St.,32,74,North Florida,36,80
-Rider,22,58,Duquesne,37,77
-Robert Morris,35,68,Wisconsin,37,78
-Sacramento St.,30,57,Tulane,41,92
-Towson,33,61,Wake Forest,35,71
-Elon,36,86,IUPUI,36,72
-Alabama St.,36,75,Memphis,47,92
-Arkansas St.,39,74,Iowa,49,88
-Missouri St.,42,70,FGCU,29,61
-UTSA,25,62,Texas St.,27,72
-Austin Peay,27,63,UTEP,38,71
-Sam Houston,33,67,Ole Miss,31,70
-Tennessee St.,40,67,Oregon,48,92
-Wichita St.,36,66,Liberty,39,83
-UNLV,40,82,Pepperdine,30,68
-DePaul,32,68,South Carolina,41,73
-Xavier,37,71,Washington,30,74
-Mount St. Mary's,31,72,Georgetown,43,83
-Wagner,22,51,Seton Hall,32,72
-Alabama A&M,28,81,Lipscomb,51,106
-Columbia,44,78,Temple,37,73
-Ball St.,27,50,Evansville,30,74
-Northwestern St.,35,75,Presbyterian,31,78
-Princeton,38,82,Monmouth,27,57
-Rhode Island,26,61,Northwestern,33,72
-Norfolk St.,24,53,San Jose St.,39,77
-Marist,24,59,Binghamton,38,82
-Gardner-Webb,20,52,Colgate,26,59
-New Orleans,31,70,Loyola Chicago,41,73
-Oregon St.,24,63,Nebraska,44,84
-Harvard,35,64,Boston College,33,73
-IUPUI,27,61,Winthrop,37,74
-Maine,28,58,North Florida,38,67
-Portland St.,35,73,Cal Poly,22,57
-Hampton,54,92,FGCU,30,85
-Howard,31,63,Rutgers,39,85
-Weber St.,33,75,Yale,29,65
-Elon,44,83,Holy Cross,35,69
-Morgan St.,29,50,BYU,42,93
-Portland,43,83,Nevada,53,108
-Wyoming,37,78,Furman,28,71
-Oakland,36,77,Drake,37,85
-Holy Cross,36,74,IUPUI,28,61
-Georgia,34,64,Providence,32,71
-North Texas,40,65,Towson,18,39
-Boise St.,38,68,Clemson,41,85
-Colgate,28,57,Weber St.,20,55
-Grambling,14,37,Iowa St.,48,92
-Prairie View,35,78,UT Martin,32,66
-SIUE,35,74,South Alabama,38,86
-UAlbany,47,82,Quinnipiac,40,85
-Little Rock,40,77,Georgia St.,40,88
-Northeastern,29,82,East Carolina,33,76
-Elon,31,70,Winthrop,39,78
-LSU,46,86,Wake Forest,36,80
-Yale,36,71,Gardner-Webb,23,70
-Washington St.,39,78,Rhode Island,32,57
-American,34,83,Georgetown,35,88
-Ga. Southern,48,92,Kennesaw St.,50,96
-Marshall,26,60,Utah St.,39,83
-UNI,22,65,South Florida,32,74
-George Mason,22,49,Charlotte,25,54
-Vermont,33,61,Liberty,35,71
-Jackson St.,34,73,Missouri,37,72
-St. John's (NY),52,91,Utah,43,82
-Grand Canyon,29,68,South Carolina,30,75
-FIU,28,71,Akron,35,77
-Kent St.,27,52,Missouri St.,33,56
-Saint Louis,30,69,Wichita St.,44,88
-San Diego St.,43,100,Washington,40,97
-Iona,32,68,High Point,41,82
-Norfolk St.,38,69,FGCU,28,66
-UNCW,35,83,Murray St.,37,81
-Stetson,43,85,Milwaukee,30,67
-Utah Valley,24,61,Cornell,28,74
-Kennesaw St.,43,79,Northeastern,42,77
-San Jose St.,29,71,Hampton,33,52
-The Citadel,13,62,Idaho St.,23,61
-Indiana,34,74,Louisville,29,66
-Marshall,44,80,FIU,25,69
-Louisiana,34,85,Wright St.,45,91
-Florida St.,42,83,UNLV,35,75
-Fordham,43,72,Kent St.,40,79
-Ga. Southern,29,64,East Carolina,37,82
-Rider,25,48,Stony Brook,34,55
-Howard,24,61,Bryant,36,67
-Sam Houston,33,88,Troy,42,86
-Hofstra,59,102,Buffalo,26,68
-Utah St.,33,65,Akron,29,62
-Oregon,28,67,Florida A&M,27,54
-Charlotte,26,71,UCF,22,74
-West Virginia,36,58,SMU,25,70
-Green Bay,23,54,Montana St.,24,53
-Navy,31,59,San Diego,30,67
-Bradley,40,80,Tulane,36,77
-North Dakota,35,73,Pacific,35,71
-UTEP,40,75,California,35,72
-Binghamton,31,75,Sacred Heart,48,89
-Morgan St.,29,72,Radford,37,82
-Oakland,30,78,Marshall,29,71
-Louisiana,33,68,Buffalo,21,60
-Ga. Southern,34,76,Northeastern,42,93
-Drake,35,79,Akron,29,59
-High Point,37,74,Illinois St.,30,72
-Kennesaw St.,47,84,East Carolina,43,85
-Rice,34,88,Indiana St.,55,103
-UNLV,23,65,Richmond,38,82
-UAlbany,25,62,Army,28,59
-Boston U.,21,45,Davidson,36,69
-Idaho St.,41,69,Campbell,25,55
-Lehigh,42,79,Monmouth,43,88
-LIU,25,67,Columbia,41,77
-UMBC,24,68,Maryland,57,92
-UAB,29,58,Middle Tenn.,28,57
-Wright St.,48,76,Hofstra,38,85
-Alabama A&M,15,54,Auburn,49,84
-Pepperdine,30,60,UC Irvine,34,76
-Ark.-Pine Bluff,36,67,Minnesota,51,86
-Siena,25,59,Milwaukee,20,61
-UC Riverside,38,74,Green Bay,33,68
-Toledo,32,84,New Mexico,42,92
-Iona,47,89,Buffalo,24,64
- N. Carolina,35,91,UNI,41,69
-Morgan St.,39,83,Chicago St.,45,84
-Georgia St.,37,93,Little Rock,45,90
-Harvard,36,76,Colgate,30,70
-Grambling,26,68,Sam Houston,44,86
-Villanova,41,85,Texas Tech,33,69
-Sacramento St.,44,71,Austin Peay,35,74
-Ole Miss,38,77,Temple,33,76
- Creighton,45,88,Loyola Chicago,37,65
-Princeton,37,76,Old Dominion,30,56
-Mount St. Mary's,39,65,American,33,68
-The Citadel,30,58,Campbell,29,65
-Illinois St.,21,49,Wright St.,39,74
-VMI,20,54,Air Force,36,64
-Michigan,25,67,Memphis,37,71
-Indiana St.,46,90,Pepperdine,31,82
-High Point,27,92,Hofstra,33,97
-Alabama St.,27,67,Samford,41,99
-Duquesne,39,79,Nebraska,37,89
-Wisconsin,24,69,SMU,32,61
-UC Riverside,29,68,Montana St.,28,69
-Florida,39,86,Pittsburgh,34,71
-New Mexico,46,90,Rice,33,56
-Bradley,37,63,UTEP,26,59
-UC Irvine,39,77,Toledo,32,71
