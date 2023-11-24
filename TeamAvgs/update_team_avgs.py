@@ -3,7 +3,7 @@ import os
 import shutil
 
 CORE_URL = 'https://www.ncaa.com/stats/basketball-men/d1/current/team/'
-DATE = '11-22-23'
+DATE = '11-23-23'
 csv_path = './TeamAvgs/DailyStats/TeamAverages/November23/' + DATE + '.csv'
 
 def append_to_daily_main(df, col, corresponding_col):

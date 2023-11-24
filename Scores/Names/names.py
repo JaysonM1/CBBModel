@@ -1,7 +1,9 @@
 inconsistent_names = ['Albany', "Mt St Mary's", "St. John's", 'N. Iowa', 'UNC-Ash.', 'FAU', 'Loyola Chi.',
                       'CCSU', 'Charleston', 'Loyola-Md.', 'Miami (Ohio)', 'E. Michigan',
                       'W. Michigan', 'George Wash.', 'N. Dak. St.', 'W. Carolina',
-                      'Texas So.', 'N.J. Tech', 'Seattle']
+                      'Texas So.', 'N.J. Tech', 'Seattle', 'N. Mex. St.', 'LBSU',
+                      'St. Fran.-Pa.','Clev. St.', 'Miss. St.', "Saint Mary's", 'Army', 'LMU',
+                      'Va. Tech', 'USC', 'N.Carolina', 'Colo. St.']
 
 cbs2ncaa = {
             'Albany': 'UAlbany',
@@ -22,6 +24,19 @@ cbs2ncaa = {
             'W. Carolina': 'Western Caro.',
             'Texas So.': 'Texas Southern',
             'N.J. Tech': 'NJIT',
-            'Seattle': 'Seattle U'
+            'Seattle': 'Seattle U',
+            'N. Mex. St.': 'New Mexico St.',
+            'LBSU': 'Long Beach St.',
+            'St. Fran.-Pa.': 'Saint Francis (PA)',
+            'Clev. St.': 'Cleveland St.',
+            'Miss. St.': 'Mississippi St.', 
+            "Saint Mary's":"Saint Mary's (CA)",
+            'Army': 'Army West Point',
+            'LMU': 'LMU (CA)',
+            'Va. Tech': 'Virginia Tech',
+            'USC': 'Southern California',
+            'N. Carolina': 'North Carolina',
+            'Colo St.': 'Colorado St.'
+
             
 }

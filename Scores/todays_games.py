@@ -75,7 +75,7 @@ def get_historical_game_data():
     month = '11'
     header = ['Home', '1h', 'Th', 'Away', '1w', 'Tw']
     master_df = pd.DataFrame(columns=header)
-    for day in range(6,23):
+    for day in range(6,24):
         day = str(day)
         if day in ['1','2','3','4','5','6','7','8','9']:
             day = '0' + day
