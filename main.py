@@ -4,7 +4,9 @@ from Scores.todays_games import get_historical_game_data
 
 
 def main():
-
+    month = input("Month: ")
+    day = input("Day: ")
+    year = input("Year: ")
     update_team_stats_today()
     get_historical_game_data()
         

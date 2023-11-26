@@ -3,7 +3,10 @@ inconsistent_names = ['Albany', "Mt St Mary's", "St. John's", 'N. Iowa', 'UNC-As
                       'W. Michigan', 'George Wash.', 'N. Dak. St.', 'W. Carolina',
                       'Texas So.', 'N.J. Tech', 'Seattle', 'N. Mex. St.', 'LBSU',
                       'St. Fran.-Pa.','Clev. St.', 'Miss. St.', "Saint Mary's", 'Army', 'LMU',
-                      'Va. Tech', 'USC', 'N.Carolina', 'Colo. St.']
+                      'Va. Tech', 'USC', 'N.Carolina', 'Colo. St.', 'McNeese St.', 'TX A&M-CC',
+                      'La. Tech', 'Lamar', 'New Hamp.', 'Okla. St.', 'NC Central',
+                      'San Fran.', 'Houston Chr.', 'C. Michigan', 'UL-Monroe', 'Tenn. Tech',
+                      'Cal-Baker.']
 
 cbs2ncaa = {
             'Albany': 'UAlbany',
@@ -36,7 +39,20 @@ cbs2ncaa = {
             'Va. Tech': 'Virginia Tech',
             'USC': 'Southern California',
             'N. Carolina': 'North Carolina',
-            'Colo St.': 'Colorado St.'
+            'Colo St.': 'Colorado St.',
+            'McNeese St.': 'McNeese',
+            'TX A&M-CC': 'A&M-Corpus Christi',
+            'La. Tech': 'Lousiana Tech',
+            'Lamar': 'Lamar University',
+            'New Hamp.': 'New Hampshire',
+            'Okla. St.': 'Oklahoma St.',
+            'NC Central': 'N.C. Central',
+            'San Fran.': 'San Franciso',
+            'Houston Chr.': 'Houston Christian',
+            'C. Michigan': 'Central Mich.',
+            'UL-Monroe': 'ULM',
+            'Miami': 'Miami (FL)',
+            'Tenn. Tech': 'Tennessee Tech',
+            'Cal-Baker.': ' CSU Bakersfield'
 
-            
 }

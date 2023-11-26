@@ -19,11 +19,11 @@ def nan_values(df):
         return True
     return False
 
-def valid_teams(teams):
+def valid_team(team):
     csv_path = 'TeamAvgs/DailyStats/TeamAverages/bare.csv'
     df = pd.read_csv(csv_path)
     valid_names = df['Team'].values
-    return teams[0] in valid_names and teams[1] in valid_names
+    return team in valid_names
         
 
 
@@ -55,7 +55,6 @@ def change_to_consistent_names(df):
         df['Team'][0] = cbs2ncaa[team1]
     if team2 in cbs2ncaa.keys():
         df['Team'][1] = cbs2ncaa[team2]
-
     return df
 
 def get_raw_game_scores_from_day(day, month, year):
@@ -70,12 +69,20 @@ def drop_leading_space(team_names):
 def drop_leading_space_df(df):
     df['Team'] = df['Team'].str.strip()
     return df
+
+def divison_two_school_present(team_names):
+    if team_names[0] not in cbs2ncaa.keys() and not valid_team(team_names[0]):
+        return True
+    if team_names[1] not in cbs2ncaa.keys() and not valid_team(team_names[1]):
+        return True
+    return False
+
 def get_historical_game_data():
     year = '2023'
     month = '11'
     header = ['Home', '1h', 'Th', 'Away', '1w', 'Tw']
     master_df = pd.DataFrame(columns=header)
-    for day in range(6,24):
+    for day in range(6,25):
         day = str(day)
         if day in ['1','2','3','4','5','6','7','8','9']:
             day = '0' + day
@@ -88,11 +95,10 @@ def get_historical_game_data():
             df = df.drop('Unnamed: 0', axis=1)
             team_names = drop_leading_space(df['Team'].tolist())
             df = drop_leading_space_df(df)
-            if nan_values(df) or not valid_teams(team_names) or cancelled_game(df):
-                if inconsistent_team_names(team_names):
-                    df = change_to_consistent_names(df)
-                else:
-                    continue
+            if nan_values(df) or cancelled_game(df) or divison_two_school_present(team_names):
+                continue
+            df = change_to_consistent_names(df)
+                
             df = df.drop('2', axis=1)
             df = restructure_home_away(df)
             master_df = pd.concat([master_df,df], ignore_index= True)
