@@ -1,9 +1,9 @@
 import pandas as pd
 import os
 import shutil
-
+from datetime import datetime
+DATE = datetime.now().strftime('%m-%d-%y')
 CORE_URL = 'https://www.ncaa.com/stats/basketball-men/d1/current/team/'
-DATE = '11-22-23'
 csv_path = './TeamAvgs/DailyStats/TeamAverages/November23/' + DATE + '.csv'
 
 def append_to_daily_main(df, col, corresponding_col):
@@ -242,6 +242,7 @@ def update_Tpg():
  
 
 def is_csv_present():
+
     file_path = os.path.join("TeamAvgs/DailyStats/TeamAverages/November23/", DATE + ".csv")
     return os.path.isfile(file_path) and file_path.lower().endswith('.csv')
 
