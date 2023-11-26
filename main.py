@@ -1,6 +1,5 @@
-import pandas as pd
 from TeamAvgs.update_team_avgs import update_team_stats_today
-from Scores.todays_games import update_latest_scores
+from Scores.todays_games import update_latest_scores, get_historical_game_data
 
 
 def main():

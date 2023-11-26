@@ -241,7 +241,7 @@ def update_Tpg():
     append_to_daily_main(df, 'TOPG', 'Tpg') 
  
 
-def is_csv_present(year, month, day):
+def is_csv_present():
 
     file_path = os.path.join("TeamAvgs/DailyStats/TeamAverages/November23/", DATE + ".csv")
     return os.path.isfile(file_path) and file_path.lower().endswith('.csv')

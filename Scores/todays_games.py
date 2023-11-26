@@ -4,7 +4,7 @@ import pandas as pd
 pd.options.mode.chained_assignment = None  # default='warn'
 from .Names.names import inconsistent_names, cbs2ncaa
 from datetime import datetime
-DATE = datetime.now().strftime('%m-%d-%y')
+DATE = datetime.now().strftime('%Y%m%d')
 def drop_ot_columns(df):
     # Check if 'OT' or 'OT2' columns exist
     ot_columns = [col for col in ['OT', 'OT2'] if col in df.columns]
