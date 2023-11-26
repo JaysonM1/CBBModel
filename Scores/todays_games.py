@@ -1,4 +1,5 @@
 import requests
+import os
 from bs4 import BeautifulSoup
 import pandas as pd
 pd.options.mode.chained_assignment = None  # default='warn'
@@ -83,8 +84,8 @@ def get_historical_game_data():
     year = '2023'
     month = '11'
     header = ['Home', '1h', 'Th', 'Away', '1w', 'Tw']
-    master_df = pd.DataFrame(columns=header)
     for day in range(6,25):
+        master_df = pd.DataFrame(columns=header)
         day = str(day)
         if day in ['1','2','3','4','5','6','7','8','9']:
             day = '0' + day
@@ -104,15 +105,27 @@ def get_historical_game_data():
             df = df.drop('2', axis=1)
             df = restructure_home_away(df)
             master_df = pd.concat([master_df,df], ignore_index= True)
+        strings = [month, day, year]
+        date = '-'.join(strings)
         master_df.to_csv('./Scores/' + date + '.csv', index = False)
     master_df = master_df.reset_index(drop=True)
 
     master_df.to_csv('./Scores/test.csv', index = False)
 
+def is_csv_present():
+    day = datetime.strptime(DATE, '%Y%m%d').strftime('%m-%d-%y')
+    print(day)
+    file_path = os.path.join("Scores/" + day + ".csv")
+    return os.path.isfile(file_path) and file_path.lower().endswith('.csv')
 
 def update_latest_scores():
+    if is_csv_present():
+        print('csv present')
+        return
     URL = 'https://www.cbssports.com/college-basketball/scoreboard/FBS/' + DATE + '/'
     dfs = pd.read_html(URL)
+    header = ['Home', '1h', 'Th', 'Away', '1w', 'Tw']
+    master_df = pd.DataFrame(columns=header)
     for df in dfs:
         df = drop_ot_columns(df)
         df['Team'] = df['Unnamed: 0'].str.extract(r'(\D+)(?:\d+-\d*|\d*$)')
@@ -126,7 +139,7 @@ def update_latest_scores():
         df = df.drop('2', axis=1)
         df = restructure_home_away(df)
         master_df = pd.concat([master_df,df], ignore_index= True)
-    master_df.to_csv('./Scores/' + DATE + '.csv', index = False)
+    day = datetime.strptime(DATE, '%Y%m%d').strftime('%m-%d-%y')
+    master_df.to_csv('./Scores/' + day + '.csv', index = False)
     master_df = master_df.reset_index(drop=True)
-
     master_df.to_csv('./Scores/test.csv', index = False)
