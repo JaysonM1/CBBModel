@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 pd.options.mode.chained_assignment = None  # default='warn'
 from .Names.names import inconsistent_names, cbs2ncaa
+from datetime import datetime
+DATE = datetime.now().strftime('%m-%d-%y')
 def drop_ot_columns(df):
     # Check if 'OT' or 'OT2' columns exist
     ot_columns = [col for col in ['OT', 'OT2'] if col in df.columns]
@@ -103,6 +105,28 @@ def get_historical_game_data():
             df = restructure_home_away(df)
             master_df = pd.concat([master_df,df], ignore_index= True)
         master_df.to_csv('./Scores/' + date + '.csv', index = False)
+    master_df = master_df.reset_index(drop=True)
+
+    master_df.to_csv('./Scores/test.csv', index = False)
+
+
+def update_latest_scores():
+    URL = 'https://www.cbssports.com/college-basketball/scoreboard/FBS/' + DATE + '/'
+    dfs = pd.read_html(URL)
+    for df in dfs:
+        df = drop_ot_columns(df)
+        df['Team'] = df['Unnamed: 0'].str.extract(r'(\D+)(?:\d+-\d*|\d*$)')
+        df = df.drop('Unnamed: 0', axis=1)
+        team_names = drop_leading_space(df['Team'].tolist())
+        df = drop_leading_space_df(df)
+        if nan_values(df) or cancelled_game(df) or divison_two_school_present(team_names):
+            continue
+        df = change_to_consistent_names(df)
+            
+        df = df.drop('2', axis=1)
+        df = restructure_home_away(df)
+        master_df = pd.concat([master_df,df], ignore_index= True)
+    master_df.to_csv('./Scores/' + DATE + '.csv', index = False)
     master_df = master_df.reset_index(drop=True)
 
     master_df.to_csv('./Scores/test.csv', index = False)
