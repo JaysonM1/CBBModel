@@ -105,7 +105,7 @@ def get_historical_game_data():
             df = df.drop('2', axis=1)
             df = restructure_home_away(df)
             master_df = pd.concat([master_df,df], ignore_index= True)
-        strings = [month, day, year]
+        strings = [month, day, '23']
         date = '-'.join(strings)
         master_df.to_csv('./Scores/' + date + '.csv', index = False)
     master_df = master_df.reset_index(drop=True)
