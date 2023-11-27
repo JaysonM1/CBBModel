@@ -127,9 +127,11 @@ def update_latest_scores():
     header = ['Home', '1h', 'Th', 'Away', '1w', 'Tw']
     master_df = pd.DataFrame(columns=header)
     for df in dfs:
+        print(df)
         df = drop_ot_columns(df)
         df['Team'] = df['Unnamed: 0'].str.extract(r'(\D+)(?:\d+-\d*|\d*$)')
-        df = df.drop('Unnamed: 0', axis=1)
+        if 'Unnamed: 0' in df.columns:
+            df = df.drop('Unnamed: 0', axis=1)
         team_names = drop_leading_space(df['Team'].tolist())
         df = drop_leading_space_df(df)
         if nan_values(df) or cancelled_game(df) or divison_two_school_present(team_names):
